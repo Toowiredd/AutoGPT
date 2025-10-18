@@ -1,22 +1,18 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: benchmark-ci.yml.backup
 name: Benchmark CI
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   push:
-#     branches: [ master, development, ci-test* ]
-#     paths:
-#       - 'benchmark/**'
-#       - .github/workflows/benchmark-ci.yml
-#       - '!benchmark/reports/**'
-#   pull_request:
-#     branches: [ master, development, release-* ]
-#     paths:
-#       - 'benchmark/**'
-#       - '!benchmark/reports/**'
-#       - .github/workflows/benchmark-ci.yml
+  push:
+    branches: [ master, development, ci-test* ]
+    paths:
+      - 'benchmark/**'
+      - .github/workflows/benchmark-ci.yml
+      - '!benchmark/reports/**'
+  pull_request:
+    branches: [ master, development, release-* ]
+    paths:
+      - 'benchmark/**'
+      - '!benchmark/reports/**'
+      - .github/workflows/benchmark-ci.yml
 
 env:
   min-python-version: '3.10'

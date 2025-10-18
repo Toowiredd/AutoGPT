@@ -1,12 +1,8 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: close-stale-issues.yml.backup
 name: 'Close stale issues'
 on:
-  workflow_dispatch:  # Manual trigger only
-#   schedule:
-#     - cron: '30 1 * * *'
-#   workflow_dispatch:
+  schedule:
+    - cron: '30 1 * * *'
+  workflow_dispatch:
 
 permissions:
   issues: write

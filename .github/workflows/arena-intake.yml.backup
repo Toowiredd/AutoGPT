@@ -1,16 +1,12 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: arena-intake.yml.backup
 name: Arena intake
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   # We recommend `pull_request_target` so that github secrets are available.
-#   # In `pull_request` we wouldn't be able to change labels of fork PRs
-#   pull_request_target:
-#     types: [ opened, synchronize ]
-#     paths:
-#       - 'arena/**'
+  # We recommend `pull_request_target` so that github secrets are available.
+  # In `pull_request` we wouldn't be able to change labels of fork PRs
+  pull_request_target:
+    types: [ opened, synchronize ]
+    paths:
+      - 'arena/**'
 
 jobs:
   check:

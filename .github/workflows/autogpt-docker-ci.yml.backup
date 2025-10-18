@@ -1,22 +1,18 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: autogpt-docker-ci.yml.backup
 name: AutoGPT Docker CI
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   push:
-#     branches: [ master, development ]
-#     paths:
-#       - '.github/workflows/autogpt-docker-ci.yml'
-#       - 'autogpts/autogpt/**'
-#       - '!autogpts/autogpt/tests/vcr_cassettes'
-#   pull_request:
-#     branches: [ master, development, release-* ]
-#     paths:
-#       - '.github/workflows/autogpt-docker-ci.yml'
-#       - 'autogpts/autogpt/**'
-#       - '!autogpts/autogpt/tests/vcr_cassettes'
+  push:
+    branches: [ master, development ]
+    paths:
+      - '.github/workflows/autogpt-docker-ci.yml'
+      - 'autogpts/autogpt/**'
+      - '!autogpts/autogpt/tests/vcr_cassettes'
+  pull_request:
+    branches: [ master, development, release-* ]
+    paths:
+      - '.github/workflows/autogpt-docker-ci.yml'
+      - 'autogpts/autogpt/**'
+      - '!autogpts/autogpt/tests/vcr_cassettes'
 
 concurrency:
   group: ${{ format('autogpt-docker-ci-{0}', github.head_ref && format('pr-{0}', github.event.pull_request.number) || github.sha) }}

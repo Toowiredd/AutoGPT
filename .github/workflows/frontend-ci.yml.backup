@@ -1,22 +1,18 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: frontend-ci.yml.backup
 name: Frontend CI/CD
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   push:
-#     branches:
-#       - master
-#       - development
-#       - 'ci-test*' # This will match any branch that starts with "ci-test"
-#     paths:
-#       - 'frontend/**'
-#       - '.github/workflows/frontend-ci.yml'
-#   pull_request:
-#     paths:
-#       - 'frontend/**'
-#       - '.github/workflows/frontend-ci.yml'
+  push:
+    branches:
+      - master
+      - development
+      - 'ci-test*' # This will match any branch that starts with "ci-test"
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+  pull_request:
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
 
 jobs:
   build:

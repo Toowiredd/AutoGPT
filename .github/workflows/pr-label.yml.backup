@@ -1,21 +1,17 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: pr-label.yml.backup
 name: "Pull Request auto-label"
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   # So that PRs touching the same files as the push are updated
-#   push:
-#     branches: [ master, development, release-* ]
-#     paths-ignore:
-#       - 'autogpts/autogpt/tests/vcr_cassettes'
-#       - 'benchmark/reports/**'
-#   # So that the `dirtyLabel` is removed if conflicts are resolve
-#   # We recommend `pull_request_target` so that github secrets are available.
-#   # In `pull_request` we wouldn't be able to change labels of fork PRs
-#   pull_request_target:
-#     types: [ opened, synchronize ]
+  # So that PRs touching the same files as the push are updated
+  push:
+    branches: [ master, development, release-* ]
+    paths-ignore:
+      - 'autogpts/autogpt/tests/vcr_cassettes'
+      - 'benchmark/reports/**'
+  # So that the `dirtyLabel` is removed if conflicts are resolve
+  # We recommend `pull_request_target` so that github secrets are available.
+  # In `pull_request` we wouldn't be able to change labels of fork PRs
+  pull_request_target:
+    types: [ opened, synchronize ]
 
 concurrency:
   group: ${{ format('pr-label-{0}', github.event.pull_request.number || github.sha) }}
